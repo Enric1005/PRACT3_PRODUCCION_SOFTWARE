@@ -5,12 +5,18 @@ class DomainError(Exception):
 
 
 class EmptyTitleError(DomainError):
+    """Error con el titulo"""
+
     pass
 
 
 class InvalidAmountError(DomainError):
+    """Error con la cantidad"""
+
     pass
 
 
 class InvalidExpenseDateError(DomainError):
+    """Error con la fecha de expedición"""
+
     pass

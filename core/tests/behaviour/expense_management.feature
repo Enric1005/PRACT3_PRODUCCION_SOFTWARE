@@ -26,7 +26,50 @@ Feature: Gestión de gastos
     Then el total de dinero gastado debe ser 15 euros
 
   Scenario: Crear tres gastos diferentes que sumen 30 euros hace que el total sean 30 euros
+    Given un gestor de gastos vacío
+    When añado un gasto de 4 euros llamado Coche
+    And añado un gasto de 16 euros llamado Moto
+    And añado un gasto de 10 euros llamado Casa   
+    Then el total de dinero gastado debe ser 30 euros
 
   Scenario: Crear tres gastos de 10, 30, 30 euros y elimino el ultimo gasto la suma son 40 euros
+    Given un gestor de gastos vacío
+    When añado un gasto de 10 euros llamado Coche
+    And añado un gasto de 30 euros llamado Moto
+    And añado un gasto de 30 euros llamado Casa
+    And elimino el gasto con id 3
+    Then el total de dinero gastado debe ser 40 euros
 
   Scenario: Crear tres gastos de 10, 30, 30 euros y elimino el ultimo gasto la suma son 40 euros
+    Given un gestor de gastos vacío
+    When añado un gasto de 10 euros llamado Coche
+    And añado un gasto de 30 euros llamado Moto
+    And añado un gasto de 30 euros llamado Casa
+    And elimino el gasto con id 3
+    Then el total de dinero gastado debe ser 40 euros
+  
+  Scenario: Crear dos gastos de 15 y 17 euros y comprobar que este mes se gasto la suma de 32 euros
+    Given un gestor de gastos vacío
+    When añado un gasto de 15 euros llamado Coche
+    And añado un gasto de 17 euros llamado Moto
+    Then 2026-03 debe sumar 32 euros
+  
+  Scenario: Crear tres gastos y comprobar que el registro de gastos es tres
+    Given un gestor de gastos vacío
+    When añado un gasto de 10 euros llamado Coche
+    And añado un gasto de 30 euros llamado Moto
+    And añado un gasto de 30 euros llamado Gasolina
+    Then debe haber 3 gastos registrados
+  
+  Scenario: Crear tres gastos y elimino los dos primeros la suma son 10
+    Given un gestor de gastos vacío
+    When añado un gasto de 10 euros llamado Coche
+    And añado un gasto de 30 euros llamado Moto
+    And añado un gasto de 30 euros llamado Gasolina
+    And elimino el gasto con id 2
+    And elimino el gasto con id 1
+    Then el total de dinero gastado debe ser 30 euros
+
+
+  
+
