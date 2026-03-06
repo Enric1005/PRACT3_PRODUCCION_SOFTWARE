@@ -36,6 +36,14 @@ jobs:
         run: |
           mypy .
 
-      - name: Run tests
+      - name: Run unit test
         run: |
-          pytest
+          pytest /core/unit/test
+      
+      - name: Run unit test behaviour
+        run: |
+          pytest /core/behaviour
+      
+      - name: Run unit test integration
+        run: |
+          pytest /core/integration 
