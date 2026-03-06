@@ -38,12 +38,12 @@ jobs:
 
       - name: Run unit test
         run: |
-          pytest core/unit/test
+          pytest core/tests/unit
       
       - name: Run unit test behaviour
         run: |
-          pytest core/behaviour
+          pytest core/tests/behaviour
       
       - name: Run unit test integration
         run: |
-          pytest core/integration 
+          pytest core/tests/integration 
